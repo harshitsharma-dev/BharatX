@@ -1,0 +1,26 @@
+# Price Comparison API - Ultra Minimal Production Requirements
+# Maximum compatibility for cloud deployment
+# Removes all packages that require compilation
+
+# Core web framework
+flask==3.0.0
+flask-cors==4.0.0
+requests==2.31.0
+
+# HTML parsing - using built-in parser only
+beautifulsoup4==4.12.2
+
+# Async HTTP (using pure Python implementation)
+aiohttp==3.9.1
+
+# Text similarity - pure Python implementation
+fuzzywuzzy==0.18.0
+
+# Fake user agents - pure Python
+fake-useragent==1.4.0
+
+# Production WSGI server
+gunicorn==21.2.0
+
+# Environment configuration
+python-dotenv==1.0.0
