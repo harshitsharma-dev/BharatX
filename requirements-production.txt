@@ -1,0 +1,33 @@
+# Price Comparison API - Production Requirements
+# Optimized for cloud deployment (Render, Railway, etc.)
+
+# Core dependencies
+flask==3.0.0
+requests==2.31.0
+beautifulsoup4==4.12.2
+aiohttp==3.9.1
+asyncio-throttle==1.0.2
+
+# Text processing and similarity
+fuzzywuzzy==0.18.0
+python-Levenshtein==0.23.0
+
+# Web scraping utilities
+lxml==4.9.3
+html5lib==1.1
+fake-useragent==1.4.0
+
+# Compression support (for Shopsy and other sites)
+brotli==1.1.0
+
+# Production WSGI server
+gunicorn==21.2.0
+
+# Environment and configuration
+python-dotenv==1.0.0
+
+# Optional: Enhanced logging and monitoring
+colorlog==6.8.0
+
+# Optional: Performance monitoring
+psutil==5.9.6

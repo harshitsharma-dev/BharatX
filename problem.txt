@@ -1,0 +1,75 @@
+Problem Understanding
+The task is to create a tool that reliably fetches the best price for any given product, comparing prices across multiple websites relevant to the user's specified country. The tool should return a list of results ranked in ascending order of price, including the product name, price, currency, and a direct link to the product page.
+
+The solution will be evaluated on:
+
+Accuracy: The results must be accurate, with product names and prices matching the URLs provided.
+Coverage: The tool should not be limited to a single product category (e.g., only phones) but should be able to search for a wide range of products.
+Quality: The results should be relevant to the user's location, considering local retailers that may offer better prices than global websites.
+Optimized Solution Approach
+1. Input Structure
+The tool should accept a JSON input:
+
+{
+  "country": "US",
+  "query": "iPhone 16 Pro, 128GB"
+}
+2. Workflow Overview
+Country-Specific Website Selection:
+Maintain a mapping of popular and relevant e-commerce sites for each country (e.g., Amazon, Walmart, Best Buy for the US; Flipkart, Amazon India, Sangeetha Mobiles for India).
+Product Search & Scraping:
+For each selected website, perform a search using the query.
+Scrape the product name, price, currency, and product page link from the top results.
+Ensure results are filtered for the most relevant matches (e.g., exact model and specification).
+Data Normalization:
+Convert all prices to a standard currency if needed, or clearly indicate the currency per result.
+Normalize product names for comparison.
+Result Ranking:
+Sort the results in ascending order of price.
+Output Formatting:
+Return a JSON array with each result containing: link, price, currency, and productName.
+3. Technical Implementation
+Backend:
+
+Use Python with libraries such as requests, BeautifulSoup, and optionally Selenium for dynamic websites.
+Modularize code to support easy addition of new e-commerce sites.
+Implement robust error handling for failed requests or parsing errors.
+Dockerization:
+
+Package the application in a Docker container for consistent deployment and testing.
+Provide a Dockerfile and clear instructions for building and running the container.
+Testing & Proof:
+
+Include test scripts and sample queries.
+Provide a video or screenshots demonstrating the tool fetching and ranking prices for the sample input.
+4. Example Output
+[
+  {
+    "link": "https://bestbuy.com/iphone16pro-128gb",
+    "price": 999,
+    "currency": "USD",
+    "productName": "Apple iPhone 16 Pro 128GB"
+  },
+  {
+    "link": "https://amazon.com/iphone16pro-128gb",
+    "price": 1049,
+    "currency": "USD",
+    "productName": "Apple iPhone 16 Pro 128GB"
+  }
+]
+5. Key Features for Optimization
+Parallelized Scraping:
+Use asynchronous requests to fetch data from multiple sites simultaneously, reducing response time.
+Caching Results:
+Implement caching for frequent queries to improve speed and reduce redundant requests.
+Extensible Site Integration:
+Design the system to easily add new country-specific or product-specific retailers.
+Smart Matching:
+Use fuzzy matching or NLP techniques to ensure the returned products closely match the query.
+6. Submission Checklist
+Public GitHub repository with complete code and Dockerfile.
+Instructions for setup and testing.
+Proof of working for the sample query.
+Support for multiple product types and countries.
+Summary:
+The optimal solution is a modular, Dockerized Python tool that fetches, parses, and ranks product prices from multiple country-relevant e-commerce websites, ensuring high accuracy, broad coverage, and quality results tailored to the user's location and query.

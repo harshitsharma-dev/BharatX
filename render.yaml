@@ -1,0 +1,12 @@
+# Render deployment configuration
+# https://render.com/docs/deploy-flask
+
+# Environment variables for production
+FLASK_ENV=production
+FLASK_DEBUG=false
+PYTHONPATH=/opt/render/project/src
+
+# Optional: Add these environment variables in Render dashboard
+# MAX_WORKERS=2
+# REQUEST_TIMEOUT=120
+# CACHE_ENABLED=true
