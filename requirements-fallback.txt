@@ -1,0 +1,37 @@
+# Price Comparison API - Alternative Production Requirements
+# For maximum compatibility with cloud platforms
+# Uses alternative packages if standard ones fail
+
+# Core dependencies
+flask==3.0.0
+requests==2.31.0
+beautifulsoup4==4.12.2
+aiohttp==3.9.1
+
+# Text processing - using alternative if Levenshtein fails
+fuzzywuzzy==0.18.0
+# Alternative: rapidfuzz==3.5.2
+
+# Web scraping utilities - using html.parser as fallback
+html5lib==1.1
+fake-useragent==1.4.0
+# Note: BeautifulSoup can use built-in html.parser if lxml fails
+
+# Compression support
+brotli==1.1.0
+
+# Production WSGI server
+gunicorn==21.2.0
+
+# Environment and configuration
+python-dotenv==1.0.0
+
+# Optional: Enhanced logging and monitoring
+colorlog==6.8.0
+
+# Optional: Performance monitoring
+psutil==5.9.6
+
+# Alternative packages if main ones fail:
+# rapidfuzz==3.5.2  # Alternative to python-Levenshtein
+# html-parser (built-in)  # Alternative to lxml
