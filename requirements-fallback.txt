@@ -1,29 +1,29 @@
 # Price Comparison API - Python 3.12 Fallback Requirements  
-# For maximum cloud platform compatibility with Python 3.12
-# Removes problematic compiled dependencies if needed
+# EXACT VERSIONS working locally on Python 3.12.5
+# Minimal set if main requirements fail
 
-# Core web framework
-flask==3.0.0
-flask-cors==4.0.0
-requests==2.31.0
+# Core web framework - WORKING LOCALLY
+flask==3.1.1
+flask-cors==6.0.1
+requests==2.32.4
 
-# HTML parsing - built-in parser fallback
+# HTML parsing - WORKING LOCALLY
 beautifulsoup4==4.12.2
 
-# Async HTTP
+# Async HTTP - WORKING LOCALLY
 aiohttp==3.9.1
 
-# Text similarity - pure Python fallback
+# Text similarity - WORKING LOCALLY (no Levenshtein needed)
 fuzzywuzzy==0.18.0
 
-# User agents
-fake-useragent==1.4.0
+# User agents - WORKING LOCALLY
+fake-useragent==1.5.1
 
-# Production WSGI server
-gunicorn==21.2.0
+# Production WSGI server - WORKING LOCALLY
+gunicorn==23.0.0
 
-# Environment configuration  
+# Environment configuration - WORKING LOCALLY
 python-dotenv==1.0.0
 
-# Note: If main requirements fail, this removes lxml, python-Levenshtein, etc.
-# App gracefully falls back to html.parser and basic string comparison
+# Note: This matches exact versions working on your Python 3.12.5 system
+# No compiled packages that might fail (lxml, python-Levenshtein removed)

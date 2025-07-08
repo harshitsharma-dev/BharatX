@@ -1,34 +1,34 @@
 # Price Comparison API - Production Requirements
 # Optimized for cloud deployment (Render, Railway, etc.)
-# Python 3.12.5 compatible versions - tested locally
+# Python 3.12.5 - EXACT VERSIONS WORKING LOCALLY
 
-# Core dependencies
-flask==3.0.0
-flask-cors==4.0.0
-requests==2.31.0
+# Core dependencies - TESTED AND WORKING
+flask==3.1.1
+flask-cors==6.0.1
+requests==2.32.4
 beautifulsoup4==4.12.2
 aiohttp==3.9.1
 
-# Text processing and similarity - Python 3.12 compatible
+# Text processing and similarity - WORKING LOCALLY
 fuzzywuzzy==0.18.0
-python-Levenshtein==0.25.0
+# Note: python-Levenshtein not installed locally, using fallback
 
-# Web scraping utilities - Python 3.12 compatible
-lxml==5.3.0
+# Web scraping utilities - WORKING LOCALLY
+lxml==4.9.3
 html5lib==1.1
-fake-useragent==1.4.0
+fake-useragent==1.5.1
 
-# Compression support
-brotli==1.1.0
+# Compression support - WORKING LOCALLY
+Brotli==1.1.0
 
-# Production WSGI server
-gunicorn==21.2.0
+# Production WSGI server - WORKING LOCALLY
+gunicorn==23.0.0
 
-# Environment and configuration
+# Environment and configuration - WORKING LOCALLY
 python-dotenv==1.0.0
 
-# Optional: Enhanced logging and monitoring
-colorlog==6.8.0
+# Optional: Enhanced logging and monitoring - WORKING LOCALLY
+colorlog==6.9.0
 
-# Optional: Performance monitoring
-psutil==5.9.6
+# Optional: Performance monitoring - WORKING LOCALLY
+psutil==6.0.0

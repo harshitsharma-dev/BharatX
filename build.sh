@@ -1,19 +1,19 @@
 #!/bin/bash
-# Build script for Render deployment - Python 3.12.5 optimized
+# Build script for Render deployment - Python 3.12.5 with EXACT working versions
 echo "🚀 Starting build process for Python 3.12.5..."
 
-echo "📦 Installing Python dependencies..."
+echo "📦 Installing Python dependencies (exact versions from local working system)..."
 pip install --upgrade pip
 
-# Try main requirements optimized for Python 3.12
-echo "   Installing Python 3.12 optimized requirements..."
+# Try main requirements with exact versions that work locally
+echo "   Installing EXACT working versions (Flask 3.1.1, requests 2.32.4, etc.)..."
 if pip install -r requirements-production.txt; then
-    echo "✅ Main requirements installed successfully"
+    echo "✅ Main requirements (exact working versions) installed successfully"
 else
-    echo "⚠️  Main requirements failed, trying fallback..."
+    echo "⚠️  Main requirements failed, trying minimal fallback..."
     if [ -f "requirements-fallback.txt" ]; then
         pip install -r requirements-fallback.txt
-        echo "✅ Fallback requirements installed"
+        echo "✅ Fallback requirements (minimal working set) installed"
     else
         echo "❌ Fallback requirements not found"
         exit 1
@@ -23,23 +23,31 @@ fi
 echo "🔧 Setting up application..."
 export PYTHONPATH=/opt/render/project/src:$PYTHONPATH
 
-echo "🧪 Verifying Python 3.12 installation..."
+echo "🧪 Verifying Python 3.12 installation with exact working versions..."
 python -c "
 import sys
 print(f'Python version: {sys.version}')
 
-# Test core dependencies
-try:
-    import flask, requests, bs4, aiohttp, fuzzywuzzy
-    print('✅ Core dependencies OK')
-except ImportError as e:
-    print(f'❌ Core dependency missing: {e}')
+# Test core dependencies with version info
+packages_to_check = ['flask', 'requests', 'bs4', 'aiohttp', 'fuzzywuzzy']
+all_good = True
+
+for pkg in packages_to_check:
+    try:
+        module = __import__(pkg)
+        version = getattr(module, '__version__', 'unknown')
+        print(f'✅ {pkg} {version}')
+    except ImportError as e:
+        print(f'❌ {pkg}: {e}')
+        all_good = False
+
+if not all_good:
     sys.exit(1)
 
 # Test optional dependencies with graceful fallbacks  
 try:
     import lxml
-    print('✅ lxml available - using fast XML parser')
+    print(f'✅ lxml available - using fast XML parser (version {lxml.__version__})')
 except ImportError:
     print('⚠️  lxml not available, using html.parser fallback')
 
