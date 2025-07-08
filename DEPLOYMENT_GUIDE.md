@@ -2,9 +2,6 @@
 
 ## 🚀 Deploy to Render (Recommended)
 
-### Important: Python Version Compatibility
-This application requires **Python 3.11** for optimal compatibility with all dependencies. A `runtime.txt` file is included to specify this.
-
 ### Option 1: Deploy from GitHub (Recommended)
 
 1. **Push your code to GitHub:**
@@ -23,7 +20,7 @@ This application requires **Python 3.11** for optimal compatibility with all dep
    - Connect your GitHub repository
    - Configure the service:
      - **Name**: `price-comparison-api`
-     - **Runtime**: Will auto-detect Python from `runtime.txt`
+     - **Environment**: `Python 3`
      - **Build Command**: `chmod +x build.sh && ./build.sh`
      - **Start Command**: `gunicorn --bind 0.0.0.0:$PORT --workers 2 --timeout 120 complete_app:app`
      - **Instance Type**: `Free` (for testing) or `Starter` (for production)
@@ -43,7 +40,6 @@ This application requires **Python 3.11** for optimal compatibility with all dep
    ├── mcdm_ranker.py
    ├── url_builder.py
    ├── requirements-production.txt
-   ├── runtime.txt
    ├── Procfile
    ├── build.sh
    ├── webpages_samples/
@@ -148,48 +144,3 @@ gunicorn --bind 0.0.0.0:5000 --workers 2 --timeout 120 complete_app:app
 # Deploy to Render
 git push origin main  # Triggers automatic deployment
 ```
-
-## 🛠️ Troubleshooting Common Deployment Issues
-
-### Build Errors with lxml/Levenshtein on Python 3.13
-
-**Problem**: You see errors like:
-```
-Failed building wheel for lxml
-Failed building wheel for python-Levenshtein
-```
-
-**Solution**: This is a known issue with Python 3.13 compatibility. The following fixes are included:
-
-1. **runtime.txt** file specifies Python 3.11.9 (compatible version)
-2. **requirements-production.txt** uses compatible package versions
-3. **Fallback dependencies** are configured in the code
-
-**If build still fails:**
-1. Try using `requirements-fallback.txt` instead:
-   ```bash
-   # In Render dashboard, change build command to:
-   pip install -r requirements-fallback.txt && chmod +x build.sh && ./build.sh
-   ```
-
-2. The app will gracefully handle missing dependencies:
-   - Uses built-in `html.parser` instead of `lxml`
-   - Falls back to basic string comparison if `Levenshtein` is unavailable
-
-### Other Common Issues
-
-**Build Timeout**:
-- Increase build timeout in Render settings
-- Use lighter dependency versions from `requirements-fallback.txt`
-
-**Memory Issues**:
-- Upgrade to Starter plan (512MB RAM)
-- Reduce number of workers in start command
-
-**Slow Responses**:
-- This is normal for web scraping (30-60 seconds)
-- Consider upgrading for better performance
-
-**Free Tier Sleep**:
-- Render free tier sleeps after 15 minutes
-- Upgrade to paid plan for always-on service

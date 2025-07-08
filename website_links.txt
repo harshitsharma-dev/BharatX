@@ -1,0 +1,8 @@
+Instead of using APIs cause most of them need approval, we will do that later for now let's do, just webscrape with the search.
+Also, I am giving you the html pages in our webpages_samples folder.
+I will search something copy the link generated and give it here, so that you can use them in same way.
+https://www.amazon.in/s?k=iphone+16pro+max&crid=7HN8Y295XVCV&sprefix=iphone+%2Caps%2C791&ref=nb_sb_ss_mvt-t11-ranker_1_7
+https://www.ebay.com/sch/i.html?_nkw=iphone+16+pro+max&_sacat=0&_from=R40&_trksid=p4432023.m570.l1311
+https://www.flipkart.com/search?q=iphone+16+pro+max&sid=tyy%2C4io&as=on&as-show=on&otracker=AS_QueryStore_OrganicAutoSuggest_1_7_na_na_na&otracker1=AS_QueryStore_OrganicAutoSuggest_1_7_na_na_na&as-pos=1&as-type=RECENT&suggestionId=iphone+16+pro+max%7CMobiles&requestId=8d16d1ae-a3c5-48f2-8f6b-7cd1e6a12a04&as-backfill=on
+https://www.walmart.com/search?q=iphone%2016%20pro%20max&typeahead=iphone%2016
+https://www.snapdeal.com/search?keyword=IPHONE%2016%20PRO%20MAX&santizedKeyword=&catId=&categoryId=0&suggested=false&vertical=&noOfResults=20&searchState=&clickSrc=go_header&lastKeyword=&prodCatId=&changeBackToAll=false&foundInAll=false&categoryIdSearched=&cityPageUrl=&categoryUrl=&url=&utmContent=&dealDetail=&sort=rlvncy

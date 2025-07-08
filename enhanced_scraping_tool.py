@@ -18,17 +18,6 @@ import logging
 from fuzzywuzzy import fuzz
 import hashlib
 import pickle
-
-# Handle missing dependencies gracefully for cloud deployment
-try:
-    from Levenshtein import distance as levenshtein_distance
-    HAS_LEVENSHTEIN = True
-except ImportError:
-    # Fallback to basic string comparison
-    HAS_LEVENSHTEIN = False
-    def levenshtein_distance(s1, s2):
-        """Simple fallback implementation"""
-        return abs(len(s1) - len(s2))
 from mcdm_ranker import MCDMRanker
 
 # Configure logging

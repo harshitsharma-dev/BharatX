@@ -1,0 +1,107 @@
+Steps to Retrieve Search Results from Major Shopping Platforms
+Below are the step-by-step instructions for fetching product search results from each major online shopping platform. Each method is tailored to the platform’s available APIs or scraping options.
+
+1. Amazon
+Method: Product Advertising API
+
+Register and Get Credentials
+
+Sign up for the Amazon Product Advertising API.
+Obtain your Access Key, Secret Key, and Associate Tag.
+Build the Search Request
+
+Use the SearchItems operation.
+Specify parameters such as Keywords (your product query), SearchIndex (product category), and Marketplace (country-specific domain).
+Send the API Request
+
+Make a signed HTTP GET request to the API endpoint with your parameters[1].
+Parse the Response
+
+Extract product name, price, currency, and product link from the JSON response.
+2. eBay
+Method: eBay Search API or Third-Party API
+
+Register for eBay Developer Account
+
+Obtain API credentials.
+Build the Search Query
+
+Use the q parameter for your product search term.
+Optionally, use filters like category_id, buying_format, or price range.
+Send the API Request
+
+Make a GET request to the eBay Search API endpoint.
+Sort and Parse Results
+
+Sort results by price or relevance.
+Extract product name, price, currency, and product link from the response[2].
+3. Walmart
+Method: Walmart Search API
+
+Register for Walmart API Access
+
+Get your API key.
+Prepare the Search Request
+
+Use the search endpoint with your product query as the main parameter.
+You can paginate results and specify the number of items per page.
+Send the API Request
+
+Make a GET request to the Walmart Search API endpoint.
+Parse the Response
+
+Extract product details such as name, price, currency, and product link from the JSON response[3][4].
+4. Flipkart
+Method: Flipkart Scraper API (Community Project)
+
+Deploy the Scraper API
+
+Download and deploy the open-source Flipkart Scraper API as a Docker container or locally[5].
+Build the Search Request
+
+Use the API’s search endpoint with your product query.
+Send the API Request
+
+Make a GET request to the deployed API endpoint.
+Parse the Response
+
+Extract product name, current price, original price, currency (INR), and product link from the JSON response[6][5].
+5. Sangeetha Mobiles
+Method: Web Scraping or Official App
+
+Check for Public API
+
+Sangeetha Mobiles does not provide a public API for product search.
+Web Scraping
+
+Use tools like Python’s requests and BeautifulSoup to send a GET request to the search results page with your query.
+Parse the HTML for product names, prices, and links.
+Mobile App
+
+Alternatively, use the Sangeetha Mobiles app to search for products manually or automate using app automation tools[7].
+6. Google Shopping
+Method: Google Content API for Shopping
+
+Set Up Google Merchant Center
+
+Register and verify your store with Google Merchant Center.
+Enable Content API Access
+
+Generate API credentials (client email, private key).
+Query the API
+
+Use the Content API to fetch product listings, including prices and links, for your Merchant Center account.
+Parse and Use Results
+
+Extract product details from the API response[8][9].
+Summary Table
+Platform	Official API	Steps Required	Notes
+Amazon	Yes	Register → Build Request → Send → Parse Response	Requires approval
+eBay	Yes/Third-Party	Register → Build Query → Send → Parse/Sort	Flexible filters
+Walmart	Yes	Register → Build Request → Send → Parse Response	Pagination supported
+Flipkart	Community Scraper API	Deploy API → Build Request → Send → Parse Response	Open-source, Dockerized
+Sangeetha Mobiles	No (Scrape/App)	Scrape Website/App → Parse HTML/Automate App	No public API
+Google Shopping	Yes (Merchant Only)	Merchant Setup → Enable API → Query → Parse	For merchants, not general search
+Note: Always review and comply with each platform’s terms of service before using APIs or scraping. Some APIs may require approval or have usage limits.
+
+[1] https://webservices.amazon.com/paapi5/documentation/search-items.html [2] https://www.searchapi.io/docs/ebay-search-api [3] https://walmart.io/docs/affiliates/v1/search [4] https://docs.zenrows.com/scraper-apis/get-started/walmart-product [5] https://github.com/dvishal485/flipkart-scraper-api [6] https://dvishal485.github.io/flipkart-scraper-api/ [7] https://apps.apple.com/in/app/sangeetha-mobiles/id1538907306 [8] https://www.opencart.com/index.php?route=marketplace%2Fextension%2Finfo&extension_id=44627&filter_download_id=51&filter_member=pintawebware&sort=date_modified [9] https://elasticpath.dev/docs/composer/builder/builder-components/google-api-for-shopping [10] https://pplx-res.cloudinary.com/image/private/user_uploads/50968424/9f3b130f-8822-4aca-8a0b-77b8c3468d46/imgimg.jpg [11] https://webservices.amazon.com/paapi5/documentation/use-cases/organization-of-items-on-amazon/search-index.html [12] https://webservices.amazon.com/paapi5/documentation/get-items.html [13] https://webservices.amazon.in/paapi5/scratchpad/ [14] https://webservices.amazon.com/paapi5/documentation/use-cases/using-searchrefinements/finding-relevant-category.html [15] https://www.careratings.com/upload/CompanyFiles/PR/202310131043_Sangeetha_Mobiles_Private_Limited.pdf [16] https://stackoverflow.com/questions/20442607/amazon-product-advertising-api-how-i-can-fetch-more-than-100-results-with-item [17] https://serpapi.com/ebay-search-api [18] https://seller.flipkart.com/api-docs/order-api-docs/SearchOrderRef.html [19] https://webservices.amazon.com/paapi5/documentation/api-reference.html [20] https://apify.com/memo23/apify-ebay-search-cheerio [21] https://serpapi.com/walmart-search-api
