@@ -1,25 +1,24 @@
 # Price Comparison API - Production Requirements
 # Optimized for cloud deployment (Render, Railway, etc.)
-# Python 3.11 compatible versions
+# Python 3.12.5 compatible versions - tested locally
 
 # Core dependencies
 flask==3.0.0
-flask-cors
+flask-cors==4.0.0
 requests==2.31.0
 beautifulsoup4==4.12.2
 aiohttp==3.9.1
-asyncio-throttle==1.0.2
 
-# Text processing and similarity - Python 3.11 compatible versions
+# Text processing and similarity - Python 3.12 compatible
 fuzzywuzzy==0.18.0
-python-Levenshtein==0.21.1
+python-Levenshtein==0.25.0
 
-# Web scraping utilities - Python 3.11 compatible versions
-lxml==5.1.0
+# Web scraping utilities - Python 3.12 compatible
+lxml==5.3.0
 html5lib==1.1
 fake-useragent==1.4.0
 
-# Compression support (for Shopsy and other sites)
+# Compression support
 brotli==1.1.0
 
 # Production WSGI server

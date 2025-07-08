@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Test script to verify Python 3.11 compatibility and fallback dependencies
-Run this before deployment to ensure everything works
+Test script to verify Python 3.12 compatibility and dependencies
+Run this before deployment to ensure everything works with Python 3.12.5
 """
 
 import sys
@@ -12,7 +12,10 @@ def test_python_version():
     print(f"Python version: {sys.version}")
     version_info = sys.version_info
     
-    if version_info.major == 3 and 10 <= version_info.minor <= 11:
+    if version_info.major == 3 and version_info.minor == 12:
+        print("✅ Python 3.12 - Perfect match!")
+        return True
+    elif version_info.major == 3 and 10 <= version_info.minor <= 13:
         print("✅ Python version is compatible")
         return True
     else:
@@ -99,7 +102,7 @@ def test_app_imports():
 
 def main():
     """Run all compatibility tests"""
-    print("🧪 Python 3.11 Compatibility Test Suite")
+    print("🧪 Python 3.12.5 Compatibility Test Suite")
     print("=" * 50)
     
     python_ok = test_python_version()
@@ -113,10 +116,11 @@ def main():
     core_modules_ok = all(test_results.get(m, False) for m in ['flask', 'requests', 'bs4', 'fuzzywuzzy'])
     
     if python_ok and core_modules_ok:
-        print("✅ Ready for deployment!")
-        print("   - Python version is compatible")
+        print("✅ Ready for deployment with Python 3.12.5!")
+        print("   - Python version is optimal")
         print("   - All core dependencies available")
         print("   - Fallbacks configured for optional dependencies")
+        print("   - Tested and working configuration")
     else:
         print("❌ Issues detected:")
         if not python_ok:

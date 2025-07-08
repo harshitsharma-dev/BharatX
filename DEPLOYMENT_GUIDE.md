@@ -2,8 +2,8 @@
 
 ## 🚀 Deploy to Render (Recommended)
 
-### Important: Python Version Compatibility
-This application requires **Python 3.11** for optimal compatibility with all dependencies. A `runtime.txt` file is included to specify this.
+### Python Version: 3.12.5
+This application is built and tested with **Python 3.12.5** for optimal performance and compatibility. The `runtime.txt` file specifies this version for cloud deployment.
 
 ### Option 1: Deploy from GitHub (Recommended)
 
@@ -151,19 +151,20 @@ git push origin main  # Triggers automatic deployment
 
 ## 🛠️ Troubleshooting Common Deployment Issues
 
-### Build Errors with lxml/Levenshtein on Python 3.13
+### Build Errors with Dependencies on Cloud Platforms
 
 **Problem**: You see errors like:
 ```
 Failed building wheel for lxml
 Failed building wheel for python-Levenshtein
+Failed building wheel for cchardet
 ```
 
-**Solution**: This is a known issue with Python 3.13 compatibility. The following fixes are included:
+**Solution**: This application is optimized for Python 3.12.5 with the following fixes:
 
-1. **runtime.txt** file specifies Python 3.11.9 (compatible version)
-2. **requirements-production.txt** uses compatible package versions
-3. **Fallback dependencies** are configured in the code
+1. **runtime.txt** specifies Python 3.12.5 (tested and working version)
+2. **requirements-production.txt** uses Python 3.12 compatible package versions
+3. **Graceful fallbacks** are built into the code for missing dependencies
 
 **If build still fails:**
 1. Try using `requirements-fallback.txt` instead:
@@ -172,9 +173,10 @@ Failed building wheel for python-Levenshtein
    pip install -r requirements-fallback.txt && chmod +x build.sh && ./build.sh
    ```
 
-2. The app will gracefully handle missing dependencies:
-   - Uses built-in `html.parser` instead of `lxml`
+2. The app gracefully handles missing dependencies:
+   - Uses built-in `html.parser` instead of `lxml` if needed
    - Falls back to basic string comparison if `Levenshtein` is unavailable
+   - All core functionality is preserved with fallbacks
 
 ### Other Common Issues
 

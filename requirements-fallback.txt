@@ -1,20 +1,23 @@
-# Price Comparison API - Fallback Requirements  
-# Ultra minimal for maximum cloud platform compatibility
-# No compiled dependencies
+# Price Comparison API - Python 3.12 Fallback Requirements  
+# For maximum cloud platform compatibility with Python 3.12
+# Removes problematic compiled dependencies if needed
 
 # Core web framework
 flask==3.0.0
 flask-cors==4.0.0
 requests==2.31.0
 
-# HTML parsing - built-in parser only
+# HTML parsing - built-in parser fallback
 beautifulsoup4==4.12.2
 
 # Async HTTP
 aiohttp==3.9.1
 
-# Text similarity - pure Python (no Levenshtein)
+# Text similarity - pure Python fallback
 fuzzywuzzy==0.18.0
+
+# User agents
+fake-useragent==1.4.0
 
 # Production WSGI server
 gunicorn==21.2.0
@@ -22,5 +25,5 @@ gunicorn==21.2.0
 # Environment configuration  
 python-dotenv==1.0.0
 
-# Note: All compiled packages removed (lxml, python-Levenshtein, cchardet, etc.)
-# App uses fallbacks: html.parser, basic string comparison
+# Note: If main requirements fail, this removes lxml, python-Levenshtein, etc.
+# App gracefully falls back to html.parser and basic string comparison
